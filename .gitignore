@@ -25,7 +25,7 @@ dist/
 
 # JetBrains IDE
 .idea/
-sbt.xml
+.idea/*.xml
 
 # Unit test reports
 TEST*.xml
