@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1mr8srz" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
   <decision id="belastingzaken_aanslagen" name="BelastingWKIR">
-    <decisionTable id="DecisionTable_1pwxlwy" hitPolicy="COLLECT">
+    <decisionTable id="DecisionTable_1pwxlwy" hitPolicy="RULE ORDER">
       <input id="Input_1" label="Aanslag biljet omschrijving" camunda:inputVariable="aanslagBiljetOmschrijving">
         <inputExpression id="InputExpression_1" typeRef="string">
           <text>AanslagBiljetOmschrijving</text>
