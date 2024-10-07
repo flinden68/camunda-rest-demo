@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1mr8srz" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
+  <decision id="belastingzaken_aanslagen" name="BelastingWKIR">
+    <decisionTable id="DecisionTable_1pwxlwy" hitPolicy="COLLECT">
+      <input id="Input_1" label="Aanslag biljet omschrijving" camunda:inputVariable="aanslagBiljetOmschrijving">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>AanslagBiljetOmschrijving</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0fgaxok" label="Openstaand saldo" camunda:inputVariable="openstaandSaldo">
+        <inputExpression id="LiteralExpression_1difo6p" typeRef="double">
+          <text>openstaandSaldo</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Tekst" name="text" typeRef="string" />
+      <output id="OutputClause_0kcxoku" label="Actie" name="action" typeRef="string" biodi:width="353" />
+      <output id="OutputClause_11stmbt" label="Type" name="type" typeRef="string">
+        <outputValues id="UnaryTests_0vgptl0">
+          <text>"LINK","PREFILL","INTERN"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0x4divt">
+        <description>Bezwaar of verzoek indienen</description>
+        <inputEntry id="UnaryTests_0q7wvef">
+          <text>"Woonlastennota"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lvjrdv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x1dz6t">
+          <text>"Bezwaar of verzoek indienen"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18xw0yv">
+          <text>"https://openformulieren-zgw.test.denhaag.nl/bezwaar-maken/"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ncy9bl">
+          <text>"LINK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a0z7o5">
+        <description>Kwijtschelding aanvragen</description>
+        <inputEntry id="UnaryTests_1dw7e4c">
+          <text>"Woonlastennota", "Hondenbelasting", "Precario liggeld schepen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p3j1z2">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13brzvi">
+          <text>"Kwijtschelding aanvragen"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06cywlr">
+          <text>"https://openformulieren-zgw.acc.denhaag.nl/kwijtschelding-gemeentelijke-belastingen/"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_037t22t">
+          <text>"LINK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06tmtnj">
+        <description>Bezwaar maken tegen andere belastingaanslag of legesnota</description>
+        <inputEntry id="UnaryTests_0lex728">
+          <text>not("Woonlastennota","Parkeerbelasting")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pptqw5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tygc6q">
+          <text>"Bezwaar maken tegen andere belastingaanslag of legesnota"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1vvnmse">
+          <text>"https://openformulieren-zgw.acc.denhaag.nl/bezwaarschrift-overige-gemeentelijke-belastingen/startpagina"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bn8vcy">
+          <text>"LINK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iity1z">
+        <description>Bezwaar maken tegen parkeerbon</description>
+        <inputEntry id="UnaryTests_0pmisea">
+          <text>"Parkeerbelasting"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v0eg9t">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lm6wp9">
+          <text>"Bezwaar maken tegen parkeerbon"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1mlbb39">
+          <text>"https://formulier.denhaag.nl/Tripleforms/formulier/nl-NL/DefaultEnvironment/scNaheffingsAanslagParkeren.aspx"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0k7d0r7">
+          <text>"LINK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13tk72q">
+        <description>In termijnen betalen via een betalingsregeling</description>
+        <inputEntry id="UnaryTests_1g5p3vi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vnhkz1">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0udwxjj">
+          <text>"In termijnen betalen via een betalingsregeling"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0e5bob1">
+          <text>"https://formulier.denhaag.nl/Tripleforms/formulier/nl-NL/DefaultEnvironment/scAanvragenBetalingsregeling.aspx"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ifvj2z">
+          <text>"LINK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jw0c9c">
+        <description>Ik heb een andere vraag of verzoek</description>
+        <inputEntry id="UnaryTests_10q4nmb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k7atjm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u3wus1">
+          <text>"Ik heb een andere vraag of verzoek"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1nevcse">
+          <text>"https://formulieren.denhaag.nl/bericht-of-antwoord-voor-de-directeur-gemeentebelastingen"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tlzwj5">
+          <text>"LINK"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="belastingzaken_aanslagen">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
