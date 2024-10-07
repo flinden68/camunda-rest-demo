@@ -39,7 +39,7 @@ This example deploys a [decision definition](./src/main/resources/dmn/check-orde
 
 ## Run the application and call the REST API
 
-You can then build the application with `mvn clean install` and then run it with `java -jar` command.
+You can then build the application with `mvn clean install` and then run it with ` ./mvnw spring-boot:run` command.
 
 Then you can access REST API in browser: `http://localhost:8080/engine-rest/decision-definition` - this will show you the deployed decision definition.
 
