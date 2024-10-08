@@ -103,10 +103,10 @@
           <text>"In termijnen betalen via een betalingsregeling"</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0e5bob1">
-          <text>"https://formulier.denhaag.nl/Tripleforms/formulier/nl-NL/DefaultEnvironment/scAanvragenBetalingsregeling.aspx"</text>
+          <text>"watkanikregelen"</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0ifvj2z">
-          <text>"LINK"</text>
+          <text>"PREFILL"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0jw0c9c">
