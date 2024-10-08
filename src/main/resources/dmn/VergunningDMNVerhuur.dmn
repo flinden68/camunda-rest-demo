@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1kauyaj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
+  <decision id="vergunningverhuur" name="VergunningDMN">
+    <decisionTable id="DecisionTable_1028k6h" hitPolicy="COLLECT">
+      <input id="Input_1" label="Ontheffing vakantieverhuur" camunda:inputVariable="aantalnachten">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text>aantalnachten</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0r2b7on" label="Geldigheid einddatum" camunda:inputVariable="geldigheideinddatum">
+        <inputExpression id="LiteralExpression_07ycxrp" typeRef="date">
+          <text>date and time(geldigheideinddatum)</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Tekst" name="Text" typeRef="string" />
+      <output id="OutputClause_1sl3gdj" label="Actie" name="action" typeRef="string" />
+      <output id="OutputClause_04e0yoq" label="Type" name="type" typeRef="string">
+        <outputValues id="UnaryTests_1p0l288">
+          <text>"LINK","PREFILL","INTERN"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_10bb06k">
+        <description>Verhuur melden
+https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn/26753/4
+"https://klantportaal-zgw.test.denhaag.nl/vakantieverhuur/" + pid + "/aanmelden/"</description>
+        <inputEntry id="UnaryTests_11f5ezf">
+          <text>&gt;0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gtopw7">
+          <text>&lt; date and time(string(now()))</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1moozqq" expressionLanguage="feel">
+          <text>"Verhuur melden"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bwdux2" expressionLanguage="feel">
+          <text>"https://klantportaal-zgw.test.denhaag.nl/vakantieverhuur/" + pid + "/aanmelden/"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jrtrbp">
+          <text>"INTERN"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="vergunningverhuur">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
