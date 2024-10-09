@@ -45,7 +45,7 @@ Then you can access REST API in browser: `http://localhost:8080/engine-rest/deci
 
 In order to evaluate a decision, execute the following:
 
-`POST http://localhost:8080/engine-rest/decision-definition/key/checkOrder/evaluate`
+`POST http://localhost:9000/engine-rest/decision-definition/key/checkOrder/evaluate`
 
 ```json
 {
@@ -56,4 +56,124 @@ In order to evaluate a decision, execute the following:
 }
 ```
 
-Or have a look at the JUnit test in the project.
+## Wet Toeristische Verhuur
+
+`POST http://localhost:9000/engine-rest/decision-definition/key/WetToeristischeVerhuur/evaluate`
+
+```json
+{
+  "variables":{
+    "pid":{
+      "value":"HelloWorld",
+      "type":"String"
+    },
+    "geldigheideinddatum":{
+      "value":"2026-12-31T00:00:00.000Z",
+      "type":"String"
+    },
+    "aantalnachten":{
+      "value":10,
+      "type":"Integer"
+    }
+  }
+}
+```
+
+### Response
+```
+[
+    {
+        "action": {
+            "type": "String",
+            "value": "https://klantportaal-zgw.test.denhaag.nl/vakantieverhuur/HelloWorld/aanmelden/",
+            "valueInfo": {}
+        },
+        "Text": {
+            "type": "String",
+            "value": "Verhuur melden",
+            "valueInfo": {}
+        },
+        "type": {
+            "type": "String",
+            "value": "INTERN",
+            "valueInfo": {}
+        }
+    }
+]
+```
+
+## Belasting aanslagen
+
+`POST http://localhost:9000/engine-rest/decision-definition/key/belastingzaken_aanslagen/evaluate`
+
+```json
+{
+  "variables":{
+    "AanslagBiljetOmschrijving":{
+      "value":"Parkeerbelasting",
+      "type":"String"
+    },
+    "openstaandSaldo":{
+      "value":10,
+      "type":"Double"
+    }
+  }
+}
+```
+
+### Response
+```
+[
+    {
+        "action": {
+            "type": "String",
+            "value": "https://formulier.denhaag.nl/Tripleforms/formulier/nl-NL/DefaultEnvironment/scNaheffingsAanslagParkeren.aspx",
+            "valueInfo": {}
+        },
+        "text": {
+            "type": "String",
+            "value": "Bezwaar maken tegen parkeerbon",
+            "valueInfo": {}
+        },
+        "type": {
+            "type": "String",
+            "value": "LINK",
+            "valueInfo": {}
+        }
+    },
+    {
+        "action": {
+            "type": "String",
+            "value": "watkanikregelen",
+            "valueInfo": {}
+        },
+        "text": {
+            "type": "String",
+            "value": "In termijnen betalen via een betalingsregeling",
+            "valueInfo": {}
+        },
+        "type": {
+            "type": "String",
+            "value": "PREFILL",
+            "valueInfo": {}
+        }
+    },
+    {
+        "action": {
+            "type": "String",
+            "value": "https://formulieren.denhaag.nl/bericht-of-antwoord-voor-de-directeur-gemeentebelastingen",
+            "valueInfo": {}
+        },
+        "text": {
+            "type": "String",
+            "value": "Ik heb een andere vraag of verzoek",
+            "valueInfo": {}
+        },
+        "type": {
+            "type": "String",
+            "value": "LINK",
+            "valueInfo": {}
+        }
+    }
+]
+```
