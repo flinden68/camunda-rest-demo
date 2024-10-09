@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1kauyaj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
-  <decision id="WetToeristischeVerhuur" name="VergunningDMN">
-    <decisionTable id="DecisionTable_1028k6h" hitPolicy="COLLECT">
+  <decision id="WetToeristischeVerhuur" name="VergunningDMN" camunda:historyTimeToLive="P180D">
+    <decisionTable id="DecisionTable_1028k6h" hitPolicy="RULE ORDER">
       <input id="Input_1" label="Ontheffing vakantieverhuur" camunda:inputVariable="aantalnachten">
         <inputExpression id="InputExpression_1" typeRef="integer">
           <text>aantalnachten</text>
@@ -9,7 +9,7 @@
       </input>
       <input id="InputClause_0r2b7on" label="Geldigheid einddatum" camunda:inputVariable="geldigheideinddatum">
         <inputExpression id="LiteralExpression_07ycxrp" typeRef="date">
-          <text>date and time(geldigheideinddatum)</text>
+          <text></text>
         </inputExpression>
       </input>
       <output id="Output_1" label="Tekst" name="Text" typeRef="string" />
@@ -27,7 +27,7 @@ https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn
           <text>&gt;0</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0gtopw7">
-          <text>&lt; date and time(string(now()))</text>
+          <text>date and time(geldigheideinddatum) &gt; date and time(string(now()))</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1moozqq" expressionLanguage="feel">
           <text>"Verhuur melden"</text>
