@@ -12,7 +12,7 @@
           <text></text>
         </inputExpression>
       </input>
-      <output id="Output_1" label="Tekst" name="Text" typeRef="string" />
+      <output id="Output_1" label="Tekst" name="text" typeRef="string" />
       <output id="OutputClause_1sl3gdj" label="Actie" name="action" typeRef="string" />
       <output id="OutputClause_04e0yoq" label="Type" name="type" typeRef="string">
         <outputValues id="UnaryTests_1p0l288">
