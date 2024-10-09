@@ -22,7 +22,7 @@
       <rule id="DecisionRule_10bb06k">
         <description>Verhuur melden
 https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn/26753/4
-"https://klantportaal-zgw.test.denhaag.nl/vakantieverhuur/" + pid + "/aanmelden/"</description>
+"/vakantieverhuur/" + pid + "/aanmelden/"</description>
         <inputEntry id="UnaryTests_11f5ezf">
           <text>&gt;0</text>
         </inputEntry>
@@ -33,7 +33,7 @@ https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn
           <text>"Verhuur melden"</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0bwdux2" expressionLanguage="feel">
-          <text>"https://klantportaal-zgw.test.denhaag.nl/vakantieverhuur/" + pid + "/aanmelden/"</text>
+          <text>"/vakantieverhuur/" + pid + "/aanmelden/"</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_1jrtrbp">
           <text>"INTERN"</text>
