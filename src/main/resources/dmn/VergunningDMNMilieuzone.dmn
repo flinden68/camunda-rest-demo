@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1kauyaj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
-  <decision id="WetToeristischeVerhuur" name="VergunningDMN" camunda:historyTimeToLive="P180D">
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1kauyaj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <decision id="MilieuZoneOldTimersBrommers" name="VergunningDMNMilieuzone" camunda:historyTimeToLive="P180D">
     <decisionTable id="DecisionTable_1028k6h" hitPolicy="RULE ORDER">
-      <input id="Input_1" label="Ontheffing vakantieverhuur" camunda:inputVariable="aantalnachten">
+      <input id="Input_1" label="Aanmelden rit" camunda:inputVariable="tegoed">
         <inputExpression id="InputExpression_1" typeRef="integer">
-          <text>aantalnachten</text>
+          <text></text>
         </inputExpression>
       </input>
       <input id="InputClause_0r2b7on" label="Geldigheid einddatum" camunda:inputVariable="geldigheideinddatum">
@@ -20,9 +20,9 @@
         </outputValues>
       </output>
       <rule id="DecisionRule_10bb06k">
-        <description>Verhuur melden
+        <description>Rit aanmelden
 https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn/26753/4
-"/vakantieverhuur/" + pid + "/aanmelden/"</description>
+"/milieuontheffing/" + pid + "/aanmelden/"</description>
         <inputEntry id="UnaryTests_11f5ezf">
           <text>&gt;0</text>
         </inputEntry>
@@ -30,10 +30,10 @@ https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn
           <text>date and time(geldigheideinddatum) &gt; date and time(string(now()))</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1moozqq" expressionLanguage="feel">
-          <text>"Verhuur melden"</text>
+          <text>"Rit aanmelden"</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0bwdux2" expressionLanguage="feel">
-          <text>"/vakantieverhuur/" + pid + "/aanmelden/"</text>
+          <text>"/milieuontheffing/" + pid + "/aanmelden/"</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_1jrtrbp">
           <text>"INTERN"</text>
@@ -43,7 +43,7 @@ https://forum.camunda.io/t/how-to-compare-date-with-current-date-and-time-in-dmn
   </decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
-      <dmndi:DMNShape dmnElementRef="WetToeristischeVerhuur">
+      <dmndi:DMNShape dmnElementRef="MilieuZoneOldTimersBrommers">
         <dc:Bounds height="80" width="180" x="160" y="100" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
