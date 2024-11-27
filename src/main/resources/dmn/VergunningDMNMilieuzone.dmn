@@ -4,7 +4,7 @@
     <decisionTable id="DecisionTable_1028k6h" hitPolicy="RULE ORDER">
       <input id="Input_1" label="Aanmelden rit" camunda:inputVariable="tegoed">
         <inputExpression id="InputExpression_1" typeRef="integer">
-          <text></text>
+          <text>tegoed</text>
         </inputExpression>
       </input>
       <input id="InputClause_0r2b7on" label="Geldigheid einddatum" camunda:inputVariable="geldigheideinddatum">
